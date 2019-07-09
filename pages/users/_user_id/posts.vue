@@ -24,20 +24,17 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
+import UserService from '~/services/UserService'
 
 @Component
 export default class UserPostsPage extends Vue {
-  async asyncData({ $axios, error, params }) {
+  async asyncData({ error, params }) {
     try {
-      const { data: posts } = await $axios.get(
-        `https://jsonplaceholder.typicode.com/posts?postId=${params.user_id}`
-      )
+      const posts = await UserService.getUserPosts(params.user_id)
 
-      return {
-        posts
-      }
+      return { posts }
     } catch {
-      error({ statusCode: 404, message: 'posts not found' })
+      error({ statusCode: 404, message: 'Posts not found' })
     }
   }
 }

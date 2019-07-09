@@ -1,3 +1,5 @@
+// import UserService from './services/UserService'
+
 const colors = require('vuetify/es5/util/colors').default
 
 module.exports = {
@@ -78,5 +80,15 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  generate: {
+    routes: async () => {
+      const users = await UserService.getUsers()
+      const usersRoutes = users.map((user) => `/users/${user.id}`)
+      const userPostsRoutes = users.map((user) => `/users/${user.id}/posts`)
+
+      return [...usersRoutes, ...userPostsRoutes]
+    }
   }
 }
