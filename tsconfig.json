@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    },
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext", "esnext.asynciterable", "dom"],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": false,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "types": ["@types/node", "@nuxt/vue-app", "@nuxtjs/axios", "vuetify"],
+    // DO NOT USE THIS SOURCE!!!!!! https://medium.com/@hayavuk/using-jsx-with-vue-js-and-typescript-d6963e44de48
+    // follow the official nuxt example https://github.com/nuxt/nuxt.js/tree/dev/examples/typescript-tsx
+    "jsx": "preserve"
+  },
+  "include": ["./**/*"],
+  "exclude": [
+    "node_modules",
+    "./dist/**/*",
+    "./.nuxt/**/*",
+    "./cypress/**/*",
+    "./scripts/**/*"
+  ]
+}
